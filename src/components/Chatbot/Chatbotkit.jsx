@@ -4,12 +4,13 @@ import config from './config/config';
 import MessageParser from './config/MessageParser';
 import ActionProvider from './config/ActionProvider';
 import 'react-chatbot-kit/build/main.css';
-
+import { Image, Flex, Box, Input, Button } from '@chakra-ui/react';
+import logo from '../../assets/fixit_white_bg.3734d2d4.svg';
 
 const Chatbotkit = () => {
-    const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([]);
 
-    const customStyles = `
+  const customStyles = `
     .react-chatbot-kit-chat-container {
       width: 100% !important;
     }
@@ -26,11 +27,24 @@ const Chatbotkit = () => {
     }
 
     .react-chatbot-kit-chat-input {
-      border-bottom-left-radius: 0px !important;
+      display: flex !important;
+      align-items: center !important;
+      border: 1px solid #212520 !important;
+      border-top-left-radius: 10px !important;
+      border-bottom-left-radius: 10px !important;
+    }
+
+    .react-chatbot-kit-chat-input input {
+      border: none !important;
+      flex: 1 !important;
+      padding: 10px !important;
     }
 
     .react-chatbot-kit-chat-btn-send {
-      border-bottom-right-radius: 0px !important;
+      background-color: #212520 !important;
+      cursor: pointer !important;
+      border-top-right-radius: 10px !important;
+      border-bottom-right-radius: 10px !important;
     }
 
     .react-chatbot-kit-chat-message-container {
@@ -47,21 +61,34 @@ const Chatbotkit = () => {
     .react-chatbot-kit-chat-bot-message {
       width: 60% !important;
       margin-left: 0 !important;
+      background-color: #212520 !important;
+      color: white !important;
+    }
+    .react-chatbot-kit-chat-bot-message-arrow {
+      border-right: #212520 !important;
     }
   `;
 
-
-    return (
-        <div className='p-10'>
-            <style>{customStyles}</style>
-            <h1 className='text-2xl font-bold text-center'>Chatbot</h1>
-            <Chatbot
-                config={config}
-                messageParser={MessageParser}
-                actionProvider={ActionProvider}
-            />
-        </div>
-    );
+  return (
+    <div className='p-10'>
+      <style>{customStyles}</style>
+      <Flex alignItems="center" justifyContent="center" className='pb-5'>
+        <Box>
+          <Image src={logo} alt="logo" h={8} filter="invert(1)" />
+        </Box>
+        <Box ml={4}>
+          <h1 className='text-4xl font-sm-bold text-center'>
+            fiXit
+          </h1>
+        </Box>
+      </Flex>
+      <Chatbot
+        config={config}
+        messageParser={MessageParser}
+        actionProvider={ActionProvider}
+      />
+    </div>
+  );
 };
 
 export default Chatbotkit;
