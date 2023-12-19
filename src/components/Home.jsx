@@ -1,6 +1,5 @@
 import { Box, Center, Heading } from '@chakra-ui/react';
 import Chatbotkit from './Chatbot/Chatbotkit';
-import './heading.css';
 
 const Home = ({ isLoggedIn }) => {
   return (
@@ -63,7 +62,7 @@ const Home = ({ isLoggedIn }) => {
               className='heading2 w-full leading-tight md:mt-5 p-0 text-center font-proximaBold -mt-[2%] bg-clip-text text-[#c4dffe] text-reveal-animation'
               mt="4"
             >
-              Human Intelligence with Enabling Artificial Intelligence
+              Enabling Human Intelligence with Artificial Intelligence
             </Heading>
           </div>
         </Center>
