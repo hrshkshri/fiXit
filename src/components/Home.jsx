@@ -1,26 +1,36 @@
 import { Box, Center, Heading } from '@chakra-ui/react';
 import Chatbotkit from './Chatbot/Chatbotkit';
+import { useEffect, useState } from 'react';
 
 const Home = ({ isLoggedIn }) => {
+  const [revealHeading1, setRevealHeading1] = useState(false);
+  const [revealHeading2, setRevealHeading2] = useState(false);
+
+  useEffect(() => {
+    const delay = 50;
+
+    const revealText = (text, setReveal) => {
+      let index = 0;
+
+      const intervalId = setInterval(() => {
+        if (index <= text.length) {
+          const partialText = text.slice(0, index);
+          setReveal(partialText);
+          index++;
+        } else {
+          clearInterval(intervalId);
+        }
+      }, delay);
+    };
+
+    revealText('Fix your Sales', setRevealHeading1);
+    setTimeout(() => revealText('Enabling Human Intelligence with Artificial Intelligence', setRevealHeading2), 1000);
+  }, []);
+
   return (
     <>
       <style>
         {`
-          @keyframes text-reveal {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .text-reveal-animation {
-            animation: text-reveal 4s ease 0.72s 1 normal forwards running;
-          }
-
           .heading1 {
             font-size: 3em;
           }
@@ -54,15 +64,17 @@ const Home = ({ isLoggedIn }) => {
         <Center>
           <div className='flex p-0 md:pt-36 px-10 lg:p-0 pb-0 flex-col text-center text-white items-center gap-8 sm:-mt-[2%] justify-between'>
             <Heading
-              className='heading1 overflow-hidden leading-6 h-full font-semibold font-proximaBold -mt-[2%] xl:mt-10 bg-clip-text text-[#c4dffe] text-reveal-animation'
+              className={`heading1 overflow-hidden leading-6 h-full font-semibold font-proximaBold -mt-[2%] xl:mt-10 bg-clip-text ${revealHeading1 ? 'text-[#c4dffe]' : ''
+                }`}
             >
-              Fix your Sales
+              {revealHeading1}
             </Heading>
             <Heading
-              className='heading2 w-full leading-tight md:mt-5 p-0 text-center font-proximaBold -mt-[2%] bg-clip-text text-[#c4dffe] text-reveal-animation'
+              className={`heading2 w-full leading-tight md:mt-5 p-0 text-center font-proximaBold -mt-[2%] bg-clip-text ${revealHeading2 ? 'text-[#c4dffe]' : ''
+                }`}
               mt="4"
             >
-              Enabling Human Intelligence with Artificial Intelligence
+              {revealHeading2}
             </Heading>
           </div>
         </Center>

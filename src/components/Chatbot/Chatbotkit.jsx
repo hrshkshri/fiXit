@@ -41,7 +41,7 @@ const Chatbotkit = () => {
     }
 
     .react-chatbot-kit-chat-btn-send {
-      background-color: #212520 !important;
+      background-color: #303130 !important;
       cursor: pointer !important;
       border-top-right-radius: 10px !important;
       border-bottom-right-radius: 10px !important;
@@ -61,11 +61,11 @@ const Chatbotkit = () => {
     .react-chatbot-kit-chat-bot-message {
       width: 60% !important;
       margin-left: 0 !important;
-      background-color: #212520 !important;
+      background-color: #303130 !important;
       color: white !important;
     }
     .react-chatbot-kit-chat-bot-message-arrow {
-      border-right: #212520 !important;
+      border-right: #303130 !important;
     }
   `;
 
