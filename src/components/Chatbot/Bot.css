@@ -29,9 +29,6 @@
   .react-chatbot-kit-chat-message-container::-webkit-scrollbar {
     display: none !important;
   }
-  
-  .react-chatbot-kit-chat-bot-message-arrow {
-  }
   .react-chatbot-kit-chat-bot-message {
     width: 60% !important;
     margin-left: 0 !important;
