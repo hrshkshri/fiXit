@@ -1,0 +1,19 @@
+.text-container {
+    overflow: hidden;
+  }
+  
+  .running-text {
+    animation: text-reveal 4s ease 0.78s 1 normal forwards;
+  }
+  
+  @keyframes text-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
